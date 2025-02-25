@@ -5,9 +5,15 @@ import mongoose from "mongoose";
 
 
 const app = express();
+dotenv.config();
 const port = 3000;
 
-const mongoString = 
+mongoose.connect(process.env.).then(() => {
+  console.log("Connected to MongoDB");
+}).catch((error) => {
+  console.log("Error: ", error);
+}
+); 
 
 app.use(cors());
 
