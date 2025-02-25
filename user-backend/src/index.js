@@ -9,6 +9,7 @@ dotenv.config();
 const port = 3000;
 
 mongoose.connect(process.env.).then(() => {
+  
   console.log("Connected to MongoDB");
 }).catch((error) => {
   console.log("Error: ", error);
