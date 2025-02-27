@@ -1,0 +1,11 @@
+import express from "express";
+import { createCategory } from "../controllers/category/create-category.js";
+import { createFood } from "../controllers/foods/create-food.js";
+import { createOrder } from "../controllers/order/CreateOrder.js";
+
+export const foodsRouter = express.Router();
+
+
+foodsRouter.post("/category", createCategory);
+foodsRouter.post("/", createFood);
+foodsRouter.post("/order", createOrder);
