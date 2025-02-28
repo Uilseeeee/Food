@@ -1,0 +1,21 @@
+import jwt from "jsonwebtoken";
+import { Users } from "../../models/user.schema.js";
+
+export const createLogin = async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await Users.findOne({ email });
+
+  if (user && user.password === password) {
+    const token = jwt.sign({ email: user.email, _id: user._id }, "akdsa");
+
+    res.json({
+      message: "Login Success",
+      token: token,
+    });
+  } else {
+    res.json({
+      message: "Login Failed",
+    });
+  }
+};
