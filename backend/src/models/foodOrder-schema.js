@@ -1,15 +1,18 @@
 import mongoose from "mongoose";
-const  {Schema, model} = mongoose;
+const { Schema, model } = mongoose;
 
- const orderSchema = new Schema({
-  user: { type: Schema.Types.ObjectId, required: true, ref: "Users" },
-  totalPrice: { type: Number, required: true },
-//   foodOrderItems: { type: String },
-  status: {
-    type: String,
-    enum: ["pending", "delivered", "cancelled"],
-    default: "pending",
+export const orderSchema = new Schema(
+  {
+    user: { type: Schema.Types.ObjectId, required: true, ref: "Users" },
+    totalPrice: { type: Number, required: true },
+    status: {
+      type: String,
+      enum: ["pending", "delivered", "cancelled"],
+      default: "pending",
+    },
   },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-});
+  { timestamps: true } // Automatically adds createdAt and updatedAt fields
+);
+
+const Order = model("Order", orderSchema);
+export default Order;
