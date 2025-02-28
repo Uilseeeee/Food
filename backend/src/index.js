@@ -28,4 +28,4 @@ app.use("/users", userRouter);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-console.log(foodsRouter);
+console.log("Hello World");
