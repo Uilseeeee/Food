@@ -20,4 +20,11 @@ export const Authorization = async (req, res, next) => {
   } catch (err) {
     return res.status(401).json({ message: "Unauthorized" });
   }
+  try {
+    const user = jwt.verify(token1, SECRET_KEY);
+    req.user = user;
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
 };
