@@ -14,5 +14,17 @@ export const getUsers = async (req, res) => {
       .status(404)
       .json({ message: "An error occurred while getting the user" });
   }
+  try {
+    const users = await Users.findById(id);
+    if (!users) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.json({ users });
+  } catch (err) {
+    console.error(err);
+    res
+      .status(404)
+      .json({ message: "An error occurred while getting the user" });
+  }
  
 };
