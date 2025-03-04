@@ -15,5 +15,19 @@ res.json({ message: "Food created successfully", food: newfood });
 catch (err) {    
     res.json({ message: "Error occured" });
 }
+try{ 
+    const { name , price, image, ingredients, category,  } = req.body;
+const newfood = await Foods.create({
+    name,
+    price,
+    category,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+});
+res.json({ message: "Food created successfully", food: newfood });
+}
+catch (err) {    
+    res.json({ message: "Error occured" });
+}
 
 }
