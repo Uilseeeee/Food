@@ -12,6 +12,7 @@ export const userSignup = async (req, res) => {
       role,
       orderedFood,
       createdAt,
+      updatedAt
     });
 
     res.json({ message: "User created successfully", user: newUser });
