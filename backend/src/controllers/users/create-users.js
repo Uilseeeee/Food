@@ -9,7 +9,9 @@ export const userSignup = async (req, res) => {
       password,
       phonenumber,
       address,
-      role
+      role,
+      orderedFood,
+      
     });
 
     res.json({ message: "User created successfully", user: newUser });
