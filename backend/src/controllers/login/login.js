@@ -18,52 +18,6 @@ export const createLogin = async (req, res) => {
       message: "Login Failed",
     });
   }
-  if (user && user.password === password) {
-    const token = jwt.sign({ email: user.email, role: user.role }, process.env.SECRET_KEY);
-
-    res.json({
-      message: "Login Success",
-      token: token,
-    });
-  } else {
-    res.json({
-      message: "Login Failed",
-    });
-  }
-  if (user && user.password === password) {
-    const token = jwt.sign({ email: user.email, role: user.role }, process.env.SECRET_KEY);
-
-    res.json({
-      message: "Login Success",
-      token: token,
-    });
-  } else {
-    res.json({
-      message: "Login Failed",
-    });
-  }
-  if (user && user.password === password) {
-    const token = jwt.sign({ email: user.email, role: user.role }, process.env.SECRET_KEY);
-
-    res.json({
-      message: "Login Success",
-      token: token,
-    });
-  } else {
-    res.json({
-      message: "Login Failed",
-    });
-  }
-  if (user && user.password === password) {
-    const token = jwt.sign({ email: user.email, role: user.role }, process.env.SECRET_KEY);
-
-    res.json({
-      message: "Login Success",
-      token: token,
-    });
-  } else {
-    res.json({
-      message: "Login Failed",
-    });
-  }
+  
+  
 };

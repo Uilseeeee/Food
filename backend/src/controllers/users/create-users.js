@@ -9,6 +9,7 @@ export const userSignup = async (req, res) => {
       password,
       phonenumber,
       address,
+      role
     });
 
     res.json({ message: "User created successfully", user: newUser });
