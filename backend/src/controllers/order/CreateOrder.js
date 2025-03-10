@@ -3,10 +3,11 @@ import Order from "../../models/foodOrder-schema.js";
 
 export const createOrder = async (req, res) => {
   try {
-    const { user, totalPrice } = req.body;
+    const { user, totalPrice, foodOrderItems } = req.body;
     const newOrder = await Order.create({
       user,
       totalPrice,
+      foodOrderItems,
       status: "pending",
     });
     res.json({ message: "Order created successfully", order: newOrder });
