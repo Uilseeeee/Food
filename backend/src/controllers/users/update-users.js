@@ -3,7 +3,7 @@ import { Users } from "../../models/user.schema.js";
 
 export const updateUsers = async (req, res) => {
     const { id } = req.params;
-    const { email, password, phonenumber, address } = req.body;
+    const { email, password, phonenumber, address , orderedFood } = req.body;
     
     try {
         const updateUser = await Users.findByIdAndUpdate(id, {
@@ -11,13 +11,14 @@ export const updateUsers = async (req, res) => {
         password,
         phonenumber,
         address,
-        role,
-        orderedFood,
-        createdAt,
-        updatedAt
+        orderedFood
         });
         res.json({ message: "User updated successfully", user: updateUser });
     } catch (err) {
+
+        console.log(err);
+        
         res.json({ message: "Error occured" });
+
     }
     }
