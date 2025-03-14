@@ -8,8 +8,12 @@ const userSchema = new Schema({
   password: { type: String },
   phonenumber: { type: String },
   address: { type: String },
-  role : { type: String, default: "user" },
+  role: {
+    enum: ["user", "admin"],
+    default: "user",
+  },
   isVerified: { type: Boolean, default: false },
+  timestamps: { type: Date, default: Date.now },
 });
 
 export const Users = mongoose.model("Users", userSchema);
