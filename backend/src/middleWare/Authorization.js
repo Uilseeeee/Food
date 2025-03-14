@@ -10,7 +10,7 @@ export const Authorization = async (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-  
+
   const token1 = token.split(" ")[1];
 
   try {
@@ -20,5 +20,4 @@ export const Authorization = async (req, res, next) => {
   } catch (err) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-  
 };
