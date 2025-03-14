@@ -1,24 +1,12 @@
-
-import Link from "next/link";
+import Image from "next/image";
 
 export const Header = () => {
-    return (
-        <header className="flex justify-between items-center py-4">
-        <h1 className="text-2xl font-bold">Next.js Template</h1>
-        <nav>
-            <ul className="flex gap-4">
-            <li>
-                <Link href="/">
-                <a>Home</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/about">
-                <a>About</a>
-                </Link>
-            </li>
-            </ul>
-        </nav>
-        </header>
-    );
-    }
+  return (
+    <header className="flex justify-between bg-[#18181B]">
+      <div className="flex flex-row">
+        <Image src="/logo.png" alt="Logo" width={200} height={200} />
+        <h1 className="text-2xl font-bold">Next.js ll Template</h1>
+      </div>
+    </header>
+  );
+};

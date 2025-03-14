@@ -8,7 +8,7 @@ const ADMIN_KEY = process.env.ADMIN_KEY;
 export const isAdmin = async (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) {
-    return res.status(401).json({ message: "Unauthorized" });
+    return res.status(401).json({ message: "You are not admin" });
   }
 
   const token1 = token.split(" ")[1];
@@ -18,6 +18,6 @@ export const isAdmin = async (req, res, next) => {
     req.user = user;
     next();
   } catch (err) {
-    return res.status(401).json({ message: "Unauthorized" });
+    return res.status(401).json({ message: "not admining" });
   }
 };

@@ -22,4 +22,4 @@ foodsRouter.patch("/:id", isAdmin , updateFood);
 foodsRouter.patch("/category/:id", isAdmin , updateCategory);
 foodsRouter.patch("/order/:id", Authorization , updateOrder);
 foodsRouter.delete("/:id", isAdmin , deleteFood);
-foodsRouter.delete("/category/:id", deleteCategory);
+foodsRouter.delete("/category/:id", isAdmin , deleteCategory);
