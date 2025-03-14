@@ -10,7 +10,6 @@ const userSchema = new Schema({
   address: { type: String },
   role: {
     enum: ["user", "admin"],
-    default: "user",
   },
   isVerified: { type: Boolean, default: false },
   timestamps: { type: Date, default: Date.now },

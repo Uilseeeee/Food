@@ -9,16 +9,17 @@ import { updateOrder } from "../controllers/order/update-order.js";
 import { deleteFood } from "../controllers/foods/delete-food.js";
 import { deleteCategory } from "../controllers/category/delete-category.js";
 import { Authorization } from "../middleWare/Authorization.js";
+import { isAdmin } from "../middleWare/isAdmin.js";
 
 export const foodsRouter = express.Router();
 
 // Authorization, isAdmin => middlewares
-foodsRouter.post("/category", Authorization, createCategory);
-foodsRouter.post("/", createFood);
-foodsRouter.post("/order", createOrder);
-foodsRouter.get("/order/:id", getOrder);
-foodsRouter.patch("/:id", updateFood);
-foodsRouter.patch("/category/:id", updateCategory);
-foodsRouter.patch("/order/:id", updateOrder);
-foodsRouter.delete("/:id", deleteFood);
+foodsRouter.post("/category", isAdmin , createCategory);
+foodsRouter.post("/", isAdmin ,  createFood);
+foodsRouter.post("/order", Authorization , createOrder);
+foodsRouter.get("/order/:id", isAdmin , getOrder);
+foodsRouter.patch("/:id", isAdmin , updateFood);
+foodsRouter.patch("/category/:id", isAdmin , updateCategory);
+foodsRouter.patch("/order/:id", Authorization , updateOrder);
+foodsRouter.delete("/:id", isAdmin , deleteFood);
 foodsRouter.delete("/category/:id", deleteCategory);
