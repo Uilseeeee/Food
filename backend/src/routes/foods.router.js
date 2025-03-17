@@ -10,11 +10,13 @@ import { deleteFood } from "../controllers/foods/delete-food.js";
 import { deleteCategory } from "../controllers/category/delete-category.js";
 import { Authorization } from "../middleWare/Authorization.js";
 import { isAdmin } from "../middleWare/isAdmin.js";
+import { getCategory } from "../controllers/category/get-category.js";
 
 export const foodsRouter = express.Router();
 
 // Authorization, isAdmin => middlewares
-foodsRouter.post("/category", isAdmin , createCategory);
+foodsRouter.get("/category", getCategory);
+foodsRouter.post("/category", createCategory);
 foodsRouter.post("/", isAdmin ,  createFood);
 foodsRouter.post("/order", Authorization , createOrder);
 foodsRouter.get("/order/:id", isAdmin , getOrder);
