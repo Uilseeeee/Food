@@ -1,9 +1,12 @@
-import React from 'react'
-import { Login } from '@/components/login'
-function page() {
+import React from "react";
+import { LoginEmail } from "./_components/loginEmail";
+
+function Page() {
   return (
-    <div><Login/></div>
-  )
+    <div>
+      <LoginEmail />
+    </div>
+  );
 }
 
-export default page
+export default Page;
