@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft } from "lucide-react";
+import {  ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
@@ -15,17 +15,17 @@ export const SignupPassword = () => {
       <div className="w-5/6 flex flex-row items-center justify-between">
         <div className="h-72 flex flex-col items-center justify-between self-center">
           <Button className="flex self-start" variant="outline" size="icon">
-            <ChevronLeft />
+              <ChevronLeft></ChevronLeft>
           </Button>
 
-          <h1 className="text-xl font-bold flex self-start">Password</h1>
+          <h1 className="text-xl font-bold flex self-start">Create password</h1>
           <h2 className="text-[#71717A]">
-            Sign up to explore your favorite dishes.
+            Create strong password with letters, numbers
           </h2>
-          <Input type="text" placeholder="Enter your email address" />
           <Input type="text" placeholder="Password" />
-          <Button className="bg-gray-500 w-72">Lets go</Button>
-          <div className="flex flex-row items-center justify-between">
+          <Input type="text" placeholder="Confirm" />
+          <Button className="bg-gray-500 w-72 flex self-start">Lets go</Button>
+          <div className="flex flex-row items-center self-start justify-between">
             <h2>Dont have an account ?</h2>
             <Link href="/signup">
               <Button className="bg-white text-black">Sign up</Button>
