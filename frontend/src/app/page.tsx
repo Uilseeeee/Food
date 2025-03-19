@@ -3,6 +3,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import { Login } from "@/components/login";
 
 type Category = {
   id: number;
@@ -26,7 +27,10 @@ try{
   }, []);
   return (
     <div>
+    {/* <Login /> */}
+    <div>
       <p>{category[0]?.categoryName}</p>
+    </div>
     </div>
   );
 }
