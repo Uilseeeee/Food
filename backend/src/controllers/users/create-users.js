@@ -8,15 +8,11 @@ export const userSignup = async (req, res) => {
       email,
       password,
       phonenumber,
-      address,
-      role,
-      orderedFood,
-      createdAt,
-      updatedAt
+      address
     });
 
     res.json({ message: "User created successfully", user: newUser });
   } catch (err) {
-    res.json({ message: "Error occured" });
+    res.json({ message: err.message });
   }
 };

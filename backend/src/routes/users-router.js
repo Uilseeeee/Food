@@ -8,7 +8,7 @@ import { updateUsers } from "../controllers/users/update-users.js";
 
 export const userRouter = express.Router();
 
-userRouter.post("/", userSignup);
+userRouter.post("/signup", userSignup);
 userRouter.delete("/:id", Authorization, DeleteUser);
 userRouter.get("/:id", Authorization, getUsers);
 userRouter.post("/login", createLogin);
