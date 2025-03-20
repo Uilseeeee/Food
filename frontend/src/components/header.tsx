@@ -11,7 +11,7 @@ export const Header = () => {
       </div>
       <div className="gap-4 flex flex-row">
       <Button className="bg-[#F4F4F5] text-black rounded-4xl" asChild>
-        <Link href="/login">Sign up</Link>
+        <Link href="/signup">Sign up</Link>
       </Button>
       <Button className="bg-[#EF4444] rounded-4xl" asChild>
         <Link href="/login">Login</Link>
