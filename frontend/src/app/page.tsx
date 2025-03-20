@@ -15,7 +15,7 @@ export default function Page() {
 
   const getCategory = async () => {
 try{
-  const res = await axios.get("https://food-backend-self.vercel.app/foods/category");
+  const res = await axios.get("http://localhost:8000/foods/category");
   setCategory(res.data);
   console.log(res.data);
   
