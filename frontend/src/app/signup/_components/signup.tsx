@@ -52,7 +52,7 @@ export const Signup = ({ setStep, setEmail, email }: LoginEmailProps) => {
           <Image src="/delivery.png" alt="Logo" width={700} height={100} />
         </div>
       </div>
-       <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
       <div className="flex items-center h-screen justify-center">
         <div className="w-5/6 flex flex-row items-center justify-between">
           <div className="h-72 flex flex-col items-center justify-between self-center">
