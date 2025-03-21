@@ -6,14 +6,15 @@ import { SignupPassword } from "./_components/SignupPassword";
 
 function Page() {
   const [step, setStep] = useState("email");
-  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
   return (
     <div>
-      {step === "email" && <Signup setStep={setStep} />}
+      {step === "email" && (
+        <Signup setStep={setStep} email={email} setEmail={setEmail} />
+      )}
 
-      {step === "password" && <SignupPassword />}
+      {step === "password" && <SignupPassword email={email} />}
     </div>
   );
 }

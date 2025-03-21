@@ -15,16 +15,12 @@ const Page = () => {
       });
       if (res.status === 200) {
         alert("Signup successful");
-      };
+      }
     } catch {}
   };
 
   return (
-    <form
-      onSubmit={handleSignup}
-      className="flex flex-col mt-10
-    "
-    >
+    <form onSubmit={handleSignup} className="flex flex-col mt-10">
       <input
         type="email"
         onChange={(e) => setEmail(e.target.value)}
