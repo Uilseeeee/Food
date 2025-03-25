@@ -18,7 +18,9 @@ export const LoginEmail = () => {
           </h2>
           <Input type="text" placeholder="Enter your email address" />
           <Input type="text" placeholder="Password" />
-          <Button className="bg-gray-500 w-72">Lets go</Button>
+          <Link href="/home">
+            <Button className="bg-gray-500 w-72">Lets go</Button>
+          </Link>
           <div className="flex flex-row items-center justify-between">
             <h2>Dont have an account ?</h2>
             <Link href="/signup">
