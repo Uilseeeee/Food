@@ -14,7 +14,8 @@ export const Footer = () => {
             <h4 className="text-[#71717A]">NOMNOM</h4>
         </div>
         <div className="flex flex-col">
-            <h4 className="text-[#71717A]">NOMNOM</h4>
+            <h4 className="text-[#71717A]">MENU</h4>
+            
         </div>
         <div className="flex flex-col">
             <h4 className="text-[#71717A]">NOMNOM</h4>
