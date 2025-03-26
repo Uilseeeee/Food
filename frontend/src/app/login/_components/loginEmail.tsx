@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
-import { useState, useEffect } from "react"; // Import useEffect
+import { useState, useEffect } from "react"; 
 import axios from "axios";
-import { useRouter } from "next/navigation"; // Make sure to use the correct import for App Router
+import { useRouter } from "next/navigation"; 
 
 export const LoginEmail = () => {
-  // Declare state variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -26,32 +25,28 @@ export const LoginEmail = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get("http://localhost:8000/users/login", {
+      const response = await axios.post("http://localhost:8000/users/login", {
         params: {
           email,
           password,
         },
       });
 
-      const { message, token } = response.data; // Assuming the server returns a message and token on successful login
-
-      if (message === "Login successful") {
-        // Store the token in localStorage or cookies
+      const { message, token } = response.data; 
+      if (message === "Login Success") {
         localStorage.setItem("authToken", token);
 
-        // Redirect to home page
         router.push("/home");
       } else {
         setError("Invalid email or password. Please try again.");
       }
     } catch (err) {
-      setError("An error occurred during login. Please try again.");
+      setError(" An error occurred during login. Please try again.");
     }
   };
 
-  // Only render the component after it has mounted on the client-side
   if (!isMounted) {
-    return null; // Prevents server-side rendering of client-only hooks
+    return null; 
   }
 
   return (
@@ -66,7 +61,6 @@ export const LoginEmail = () => {
             Sign up to explore your favorite dishes.
           </h2>
 
-          {/* Email Input */}
           <Input
             type="email"
             placeholder="Enter your email address"
@@ -75,7 +69,6 @@ export const LoginEmail = () => {
             required
           />
 
-          {/* Password Input */}
           <Input
             type="password"
             placeholder="Password"
@@ -84,12 +77,10 @@ export const LoginEmail = () => {
             required
           />
 
-          {/* Submit Button */}
           <Button type="submit" className="bg-gray-500 w-72">
             <p>Letgo</p>
           </Button>
 
-          {/* Error Message */}
           {error && <p className="text-red-500">{error}</p>}
 
           <div className="flex flex-row items-center justify-between">
