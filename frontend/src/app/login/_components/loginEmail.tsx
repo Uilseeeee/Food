@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 
 export const LoginEmail = () => {
+
   return (
     <form className="flex items-center h-screen justify-center">
       <div className="w-5/6 flex flex-row items-center justify-between">
