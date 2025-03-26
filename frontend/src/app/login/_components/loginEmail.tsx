@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 
 export const LoginEmail = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false); 
+  const [isMounted, setIsMounted] = useState(false);
 
   const router = useRouter();
 
@@ -26,31 +26,33 @@ export const LoginEmail = () => {
 
     try {
       const response = await axios.post("http://localhost:8000/users/login", {
-        params: {
-          email,
-          password,
-        },
+        email,
+        password,
       });
 
-      const { message, token } = response.data; 
+      const { message, token } = response.data;
+
       if (message === "Login Success") {
-        localStorage.setItem("authToken", token);
+        localStorage.setItem("auth_token", token);
 
         router.push("/home");
       } else {
         setError("Invalid email or password. Please try again.");
       }
     } catch (err) {
-      setError(" An error occurred during login. Please try again.");
+      setError("An error occurred during login. Please try again.");
     }
   };
 
   if (!isMounted) {
-    return null; 
+    return null;
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center h-screen justify-center">
+    <form
+      onSubmit={handleSubmit}
+      className="flex items-center h-screen justify-center"
+    >
       <div className="w-5/6 flex flex-row items-center justify-between">
         <div className="h-72 flex flex-col items-center justify-between self-center">
           <Button className="flex self-start" variant="outline" size="icon">
@@ -84,7 +86,7 @@ export const LoginEmail = () => {
           {error && <p className="text-red-500">{error}</p>}
 
           <div className="flex flex-row items-center justify-between">
-            <h2>Don't have an account?</h2>
+            <h2>Dont have an account</h2>
             <Link href="/signup">
               <Button className="bg-white text-black">Sign up</Button>
             </Link>
