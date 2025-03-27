@@ -26,7 +26,7 @@ export const Header = () => {
       )}
       {token && (
         <div>
-          <h1 className="text-white">User</h1>
+          <h1 className="text-white">Logged header</h1>
         </div>
       )}
     </header>
