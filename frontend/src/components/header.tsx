@@ -8,7 +8,6 @@ import { useAuth } from "@/hooks/authProvider";
 
 export const Header = () => {
   const { token } = useAuth();
-
   return (
     <header className="flex bg-[#18181B] justify-between items-center p-4">
       <div className="flex flex-row justify-between">
@@ -26,7 +25,10 @@ export const Header = () => {
       )}
       {token && (
         <div>
-          <h1 className="text-white">Logged header</h1>
+          <div className="flex flex-row gap-4">
+          <Image src="/shop.png" alt="Logo" width={35} height={200} />
+          <Image src="/user.png" alt="logo" width={35} height={200} />
+          </div>
         </div>
       )}
     </header>

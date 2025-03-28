@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       console.log("token", localStorage.getItem("auth_token"));
       setToken(localStorage.getItem("auth_token"));
     }
+ 
   }, []);
   
 
