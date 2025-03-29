@@ -3,6 +3,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import { FoodCard } from "@/components/foodCard";
 // import { Login } from "@/components/login";
 
 type Category = {

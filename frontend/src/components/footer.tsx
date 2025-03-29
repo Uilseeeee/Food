@@ -80,13 +80,13 @@ function Footer() {
             <div className="text-[16px] text-gray-500">MENU</div>
             <div className="flex w-[320px] justify-between">
               <div className=" w-[132px] h-[228x] text-[16px] text-white font-normal flex flex-col gap-4">
-                {catergories.slice(0, 5).map((category) => (
-                  <div key={category.id}>{category.categoryName}</div>
+                {catergories.slice(0, 5).map((category, index) => (
+                  <div key={index}>{category.categoryName}</div>
                 ))}
               </div>
               <div className=" w-[132px] h-[228x] text-[16px] text-white font-normal flex flex-col gap-4">
-                {catergories.slice(5, 10).map((category) => (
-                  <div key={category.id}>{category.categoryName}</div>
+                {catergories.slice(5, 10).map((category, index) => (
+                  <div key={index}>{category.categoryName}</div>
                 ))}
               </div>
             </div>
