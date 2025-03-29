@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@radix-ui/react-label";
+import { Input } from "@/components/ui/input";
 
 export const FoodCard = () => {
   return (
@@ -24,7 +25,7 @@ export const FoodCard = () => {
         <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when yousre done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
