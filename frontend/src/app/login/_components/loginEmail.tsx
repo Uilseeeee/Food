@@ -40,6 +40,7 @@ export const LoginEmail = () => {
         setError("Invalid email or password. Please try again.");
       }
     } catch (err) {
+      console.error(err);
       setError("An error occurred during login. Please try again.");
     }
   };

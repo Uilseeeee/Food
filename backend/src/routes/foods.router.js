@@ -17,7 +17,7 @@ export const foodsRouter = express.Router();
 // Authorization, isAdmin => middlewares
 foodsRouter.get("/category", getCategory);
 foodsRouter.post("/category", createCategory);
-foodsRouter.post("/", isAdmin ,  createFood);
+foodsRouter.post("/",   createFood);
 foodsRouter.post("/order", Authorization , createOrder);
 foodsRouter.get("/order/:id", isAdmin , getOrder);
 foodsRouter.patch("/:id", isAdmin , updateFood);
