@@ -5,7 +5,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import axios from "axios";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const FoodOrder = () => {
   const [error, setError] = useState("");
@@ -24,7 +24,7 @@ export const FoodOrder = () => {
   }, []);
 
   if (error) {
-    return <div className="text-red-500">{error}</div>;
+    return <div>{error}</div>;
   }
 
   return (
