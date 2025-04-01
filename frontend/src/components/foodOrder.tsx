@@ -9,10 +9,12 @@ import { useState, useEffect } from "react";
 
 export const FoodOrder = () => {
   const [error, setError] = useState("");
+  const [food ,setFood] = useState("");
 
   const fetchData = async () => {
     try {
-      await axios.get("http://localhost:8000/foods");
+     const response = await axios.get("http://localhost:8000/foods/category");
+     setFood(response.data)
     } catch (err) {
       console.error(err);
       setError("error occurred.");
@@ -35,6 +37,7 @@ export const FoodOrder = () => {
           asChild
         >
           <Button variant="outline">+</Button>
+          
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <Image src="/spaghetti.png" alt="Logo" width={200} height={200} />
