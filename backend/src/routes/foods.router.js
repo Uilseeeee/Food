@@ -11,12 +11,14 @@ import { deleteCategory } from "../controllers/category/delete-category.js";
 import { Authorization } from "../middleWare/Authorization.js";
 import { isAdmin } from "../middleWare/isAdmin.js";
 import { getCategory } from "../controllers/category/get-category.js";
+import { getAllFood } from "../controllers/foods/get-food.js";
 
 export const foodsRouter = express.Router();
 
 // Authorization, isAdmin => middlewares
 foodsRouter.get("/category", getCategory);
 foodsRouter.post("/category", createCategory);
+foodsRouter.get("/", getAllFood);
 foodsRouter.post("/",   createFood);
 foodsRouter.post("/order", Authorization , createOrder);
 foodsRouter.get("/order/:id", isAdmin , getOrder);
