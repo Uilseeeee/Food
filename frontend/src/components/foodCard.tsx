@@ -7,10 +7,10 @@ import axios from "axios";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "./ui/button";
 
-type  FoodType ={
-  name: string
-  
-}
+type FoodType = {
+  name: [];
+  category: [];
+};
 export const FoodCard = () => {
   const [food, setFood] = useState<FoodType[]>([]);
   const [error, setError] = useState("");
@@ -35,13 +35,13 @@ export const FoodCard = () => {
 
   return (
     <div>
-      <div className="h-80 flex items-center relative">
+      <div className="h-[450px] flex  justify-center">
         <div className="h-80 flex items-center">
-          <Dialog>
-            <DialogTrigger className="absolute left-0 bottom-0 rounded-full w-9">
-              <div>
-                {food.slice(0, 5).map((food, index) => (
-                  <div key={index}>
+          {food.slice(0, 5).map((food, index) => (
+            <Dialog key={index}>
+              <DialogTrigger className=" left-0 bottom-0 rounded-full w-9">
+                <div className="flex flex-row w-100">
+                  <div>
                     <Image
                       className="rounded-2xl"
                       src="/food2.png"
@@ -49,16 +49,22 @@ export const FoodCard = () => {
                       width={265}
                       height={200}
                     />
-                    <Button className="rounded-full" variant="outline">+</Button>
-                    {food.name}
+                    <Button className="rounded-full" variant="outline">
+                      +
+                    </Button>
+                    <div className="text-[#EF4444] font-bold text-[18px]">
+                      {" "}
+                      {food.name}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-                  <Image src="/food2.png" alt="Logo" width={200} height={200} />
-            </DialogContent>
-          </Dialog>
+                </div>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[425px]">
+                <Image src="/food2.png" alt="Logo" width={200} height={200} />
+                {food.name}
+              </DialogContent>
+            </Dialog>
+          ))}
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ function Page() {
   return (
     <div>
       <Home />
-      <FoodCard />
+      <FoodCard/>
     </div>
   );
 }
