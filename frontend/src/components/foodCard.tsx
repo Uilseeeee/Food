@@ -5,7 +5,7 @@ import Image from "next/image";
 // import { FoodOrder } from "./foodOrder";
 import axios from "axios";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 
 type FoodType = {
   name: [];
@@ -35,23 +35,26 @@ export const FoodCard = () => {
 
   return (
     <div>
-      <div className="h-[450px] flex  justify-center">
+      <div className="h-full flex bg- justify-center bg-[#404040]">
         <div className="h-80 flex items-center">
           {food.slice(0, 5).map((food, index) => (
             <Dialog key={index}>
-              <DialogTrigger className=" left-0 bottom-0 rounded-full w-9">
-                <div className="flex flex-row w-100">
-                  <div>
-                    <Image
+              <DialogTrigger className=" left-0 bottom-0 rounded-full w-full">
+                <div className="flex flex-row w-100 justify-center">
+                  <div className="h-60 w-72 bg-white flex items-center justify-center flex-col">
+                    <div className="relative">
+                       <Image
                       className="rounded-2xl"
                       src="/food2.png"
                       alt="Logo"
                       width={265}
                       height={200}
                     />
-                    <Button className="rounded-full" variant="outline">
+                    </div>
+                   
+                    {/* <Button className="rounded-full absolute right-0 bottom-0" variant="outline">
                       +
-                    </Button>
+                    </Button> */}
                     <div className="text-[#EF4444] font-bold text-[18px]">
                       {" "}
                       {food.name}
