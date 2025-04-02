@@ -85,13 +85,16 @@ export const FoodCard = () => {
                   <Button onClick={handleOrder} className="w-44 mt-10">
                     Add to cart{order}
                   </Button>
-                  {order && (
-                    <FoodOrder/>
-                  )}
                 </div>
               </DialogContent>
+              {order && (
+            <div className="absolute right-0">
+              <FoodOrder />
+            </div>
+          )}
             </Dialog>
           ))}
+         
         </div>
       </div>
     </div>
