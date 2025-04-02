@@ -2,11 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-// import { FoodOrder } from "./foodOrder";
 import axios from "axios";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "./ui/button";
-
+import { FoodOrder } from "./foodOrder";
 
 type FoodType = {
   name: [];
@@ -16,6 +15,11 @@ type FoodType = {
 export const FoodCard = () => {
   const [food, setFood] = useState<FoodType[]>([]);
   const [error, setError] = useState("");
+  const [order, setOrder] = useState(false);
+
+  const handleOrder = () => {
+    setOrder((prevstate) => !prevstate);
+  };
 
   const fetchData = async () => {
     try {
@@ -78,7 +82,12 @@ export const FoodCard = () => {
                     <div>Total price</div>
                     <div>{food.price}</div>
                   </div>
-                  <Button className="w-44 mt-10">Add to cart</Button>
+                  <Button onClick={handleOrder} className="w-44 mt-10">
+                    Add to cart{order}
+                  </Button>
+                  {order && (
+                    <FoodOrder/>
+                  )}
                 </div>
               </DialogContent>
             </Dialog>
