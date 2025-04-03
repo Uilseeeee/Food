@@ -71,6 +71,25 @@ export const FoodCard = (props: { food: FoodType }) => {
               </Button>
             </div>
           </div>
+          <div>
+            <div>Total price</div>
+            <div>${food.price * quantity}</div>
+            <div className="flex flex-row w-28 items-center justify-between">
+              <Button
+                className="rounded-full  bg-white border-dashed border-black"
+                onClick={decreaseQuantity}
+              >
+                <Minus className="text-black" />
+              </Button>
+              <div className="">{quantity}</div>
+              <Button
+                className="rounded-full bg-white border-black"
+                onClick={increaseQuantity}
+              >
+                <Plus className="text-black" />
+              </Button>
+            </div>
+          </div>
           <Button onClick={handleOrder} className="w-44 mt-10">
             Add to cart
           </Button>

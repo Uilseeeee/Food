@@ -14,6 +14,7 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     if (typeof window === "undefined") return {};
     return JSON.parse(localStorage.getItem("cart") || "{}");
   });
+  
 
   const addToCart = (id: string, quantity: number) => {
     localStorage.setItem("cart", JSON.stringify({ ...cart, [id]: quantity }));
