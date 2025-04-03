@@ -5,17 +5,21 @@ import Image from "next/image";
 import axios from "axios";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "./ui/button";
-import { FoodOrder } from "./foodOrder";
+import { Minus } from "lucide-react";
+import { Plus } from "lucide-react";
 
 type FoodType = {
-  name: [];
-  category: [];
+  name: string;
+  category: string;
   price: number;
 };
+
 export const FoodCard = () => {
   const [food, setFood] = useState<FoodType[]>([]);
   const [error, setError] = useState("");
   const [order, setOrder] = useState(false);
+
+  const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
 
   const handleOrder = () => {
     setOrder((prevstate) => !prevstate);
@@ -35,6 +39,20 @@ export const FoodCard = () => {
     fetchData();
   }, []);
 
+  const increaseQuantity = (index: number) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [index]: (prevQuantities[index] || 0) + 1,
+    }));
+  };
+
+  const decreaseQuantity = (index: number) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [index]: Math.max((prevQuantities[index] || 1) - 1, 1), 
+    }));
+  };
+
   if (error) {
     return <div>{error}</div>;
   }
@@ -45,7 +63,7 @@ export const FoodCard = () => {
         <div className="h-80 flex items-center">
           {food.slice(0, 5).map((food, index) => (
             <Dialog key={index}>
-              <DialogTrigger className=" left-0 bottom-0 rounded-full w-full">
+              <DialogTrigger className="left-0 bottom-0 rounded-full w-full">
                 <div className="flex flex-row w-100 justify-center">
                   <div className="h-60 w-72 bg-white flex items-center justify-center flex-col rounded-2xl">
                     <div className="relative">
@@ -58,12 +76,8 @@ export const FoodCard = () => {
                       />
                     </div>
 
-                    {/* <Button className="rounded-full absolute right-0 bottom-0" variant="outline">
-                      +
-                    </Button> */}
                     <div className="flex flex-row items-center w-64 justify-between">
                       <div className="text-[#EF4444] font-semibold text-[18px]">
-                        {" "}
                         {food.name}
                       </div>
                       <div>${food.price}</div>
@@ -80,21 +94,30 @@ export const FoodCard = () => {
                   </div>
                   <div>
                     <div>Total price</div>
-                    <div>{food.price}</div>
+                    <div>${food.price * (quantities[index] || 1)}</div>
+                    <div className="flex flex-row">
+                      <Button
+                        className="rounded-full  bg-white border-dashed border-black"
+                        onClick={() => decreaseQuantity(index)}
+                      >
+                        <Minus className="text-black" />
+                      </Button>
+                      <div className="">{quantities[index] || 1}</div>
+                      <Button
+                        className="rounded-full bg-white border-black"
+                        onClick={() => increaseQuantity(index)}
+                      >
+                        <Plus className="text-black" />
+                      </Button>
+                    </div>
                   </div>
                   <Button onClick={handleOrder} className="w-44 mt-10">
-                    Add to cart{order}
+                    Add to cart
                   </Button>
                 </div>
               </DialogContent>
-              {order && (
-            <div className="absolute right-0">
-              <FoodOrder />
-            </div>
-          )}
             </Dialog>
           ))}
-         
         </div>
       </div>
     </div>

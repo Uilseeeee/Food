@@ -5,8 +5,15 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/authProvider";
+import { FoodOrder } from "./foodOrder";
+import { useState } from "react";
 
 export const Header = () => {
+  const [order, setOrder] = useState(false);
+  const handleOrder = () => {
+    setOrder((prevstate) => !prevstate);
+  };
+
   const { token } = useAuth();
   return (
     <header className="flex bg-[#18181B] justify-between items-center p-4">
@@ -26,9 +33,20 @@ export const Header = () => {
       {token && (
         <div>
           <div className="flex flex-row gap-4">
-          <Image src="/shop.png" alt="Logo" width={35} height={200} />
-          <Image src="/user.png" alt="logo" width={35} height={200} />
+            <Image
+              onClick={handleOrder}
+              src="/shop.png"
+              alt="Logo"
+              width={35}
+              height={200}
+            />
+            <Image src="/user.png" alt="logo" width={35} height={200} />
           </div>
+          {order && (
+            <div className="absolute right-0">
+              <FoodOrder />
+            </div>
+          )}
         </div>
       )}
     </header>
