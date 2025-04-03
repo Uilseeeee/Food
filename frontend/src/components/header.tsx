@@ -7,12 +7,16 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/authProvider";
 import { FoodOrder } from "./foodOrder";
 import { useState } from "react";
+import { useCart } from "@/hooks/cartProvider";
 
 export const Header = () => {
+  const { cart } = useCart();
+
   const [order, setOrder] = useState(false);
   const handleOrder = () => {
     setOrder((prevstate) => !prevstate);
   };
+  console.log(cart);
 
   const { token } = useAuth();
   return (

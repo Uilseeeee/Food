@@ -1,12 +1,12 @@
 import React from "react";
 import { Home } from "./_components/home";
-import { FoodCard } from "@/components/foodCard";
+import { FoodCardList } from "@/components/foodCardList";
 
 function Page() {
   return (
     <div>
       <Home />
-      <FoodCard/>
+      <FoodCardList />
     </div>
   );
 }
