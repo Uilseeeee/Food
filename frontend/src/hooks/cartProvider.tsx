@@ -25,8 +25,8 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
 //     setCart({ ...cart, [id]: quantity });
 //   }
 
-  return (
-    <CartContext.Provider value={{ addToCart, cart }}>
+return (
+<CartContext.Provider value={{ addToCart, cart }}>
       {children}
     </CartContext.Provider>
   );

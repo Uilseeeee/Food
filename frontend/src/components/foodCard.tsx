@@ -71,6 +71,12 @@ export const FoodCard = (props: { food: FoodType }) => {
               </Button>
             </div>
           </div>
+          <Button onClick={handleOrder} className="w-44 mt-10">
+            Add to cart
+          </Button>
+        </div>
+        <div className="">
+          <div className="text-[#EF4444] font-semibold">{food.name}</div>
           <div>
             <div>Total price</div>
             <div>${food.price * quantity}</div>
